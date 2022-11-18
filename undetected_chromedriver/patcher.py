@@ -46,7 +46,7 @@ class Patcher(object):
         d = "~/.undetected_chromedriver"
     data_path = os.path.abspath(os.path.expanduser(d))
 
-    def __init__(self, executable_path=None, force=False, version_main: int = 0):
+    def __init__(self, executable_path=None, force=False, version_main: int = 0, data_path: str = None):
         """
 
         Args:
@@ -61,6 +61,9 @@ class Patcher(object):
         self.force = force
         self.executable_path = None
         prefix = secrets.token_hex(8)
+
+        if data_path:
+            self.data_path = data_path
 
         if not os.path.exists(self.data_path):
             os.makedirs(self.data_path, exist_ok=True)

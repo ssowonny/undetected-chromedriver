@@ -117,6 +117,7 @@ class Chrome(selenium.webdriver.chrome.webdriver.WebDriver):
         headless=False,
         version_main=None,
         patcher_force_close=False,
+        patcher_data_path=None,
         suppress_welcome=True,
         use_subprocess=False,
         debug=False,
@@ -236,6 +237,7 @@ class Chrome(selenium.webdriver.chrome.webdriver.WebDriver):
             executable_path=driver_executable_path,
             force=patcher_force_close,
             version_main=version_main,
+            data_path=patcher_data_path,
         )
         patcher.auto()
         self.patcher = patcher
